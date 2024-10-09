@@ -37,11 +37,23 @@
                             @endif
                         </td>
                         <td class="px-6 py-4 border-b border-gray-200 text-center">
-                            <button class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Edit</button>
-                            <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">Delete</button>
-                            <a href="{{ route('user.show', $user->id) }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
-                                Detail
-                            </a>
+                            <div class="flex justify-center space-x-2">
+                                <a href="{{ route('user.show', $user['id']) }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">
+                                    View
+                                </a>
+
+                                <a href="{{ route('user.edit', $user['id']) }}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
+                                    Edit
+                                </a>
+
+                                <form action="{{ route('user.destroy', $user['id']) }}" method="POST" class="inline-block">
+                                    @csrf
+                                    @method('DELETE')
+                                    <button class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600" onclick="return confirm('Apakah anda yakin ingin menghapus user ini?')">
+                                        Delete
+                                    </button>
+                                </form>
+                            </div>
                         </td>
                     </tr>
                 @endforeach
