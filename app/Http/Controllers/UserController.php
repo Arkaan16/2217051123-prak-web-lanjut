@@ -128,21 +128,32 @@ class UserController extends Controller
     {
         $user = UserModel::findOrFail($id);
 
-        $user->nama = $request->nama;
-        $user->npm = $request->npm;
-        $user->kelas_id = $request->kelas_id;
+        // Validasi input
+        $request->validate([
+            'nama' => 'required|string|max:255',
+            'npm' => 'required|string|max:255',
+            'kelas_id' => 'required|integer',
+            'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048', // Validasi foto (nullable)
+        ]);
 
+        // Update data user
+        $user->nama = $request->input('nama');
+        $user->npm = $request->input('npm');
+        $user->kelas_id = $request->input('kelas_id');
+
+        // Proses upload foto jika ada
         if ($request->hasFile('foto')) {
             $foto = $request->file('foto');
-            $fotoName = time() . '_' . $foto->getClientOriginalName();
-            $fotoPath = $foto->move(public_path('upload/img'), $fotoName); // Pindahkan file
-            $user->foto = $fotoName; // Simpan nama file ke database
+            $fotoName = time() . '_' . $foto->getClientOriginalName(); // Buat nama file unik
+            $foto->storeAs('uploads', $fotoName); // Simpan foto di folder storage/app/uploads
+            $user->foto = $fotoName; // Menyimpan nama file ke database
         }
 
         $user->save();
 
-        return redirect()->route('user.list')->with('success', 'user updated successfully');
+        return redirect()->route('user.list')->with('success', 'User updated successfully');
     }
+
 
     public function destroy($id)
     {
