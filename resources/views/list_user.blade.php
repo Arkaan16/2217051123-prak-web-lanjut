@@ -1,4 +1,7 @@
+
 @extends('layouts.app')
+
+@section('title', 'List User')
 
 @section('content')
 <div class="container mx-auto p-6">
@@ -29,13 +32,14 @@
                         <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['nama'] }}</td>
                         <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['npm'] }}</td>
                         <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['nama_kelas'] }}</td>
-                        <td class="px-6 py-4 border-b border-gray-200 text-center">
+                        <td class="px-6 py-4 border-b border-gray-200 text-center flex justify-center">
                             @if($user->foto)
-                                <img src="{{ asset('upload/img/' . $user->foto) }}" alt="Foto {{ $user->nama }}" class="w-20 h-20 object-cover rounded">
+                                <img src="{{ asset('storage/uploads/' . $user->foto) }}" alt="Foto {{ $user->nama }}" class="w-20 h-20 object-cover rounded">
                             @else
                                 <span>Tidak ada foto</span>
                             @endif
                         </td>
+                        
                         <td class="px-6 py-4 border-b border-gray-200 text-center">
                             <div class="flex justify-center space-x-2">
                                 <a href="{{ route('user.show', $user['id']) }}" class="inline-block bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition duration-300">

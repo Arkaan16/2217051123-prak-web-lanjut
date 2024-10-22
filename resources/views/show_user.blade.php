@@ -1,3 +1,4 @@
+
 @extends('layouts.app') <!-- Menggunakan layout dari app.blade.php -->
 
 @section('content')
@@ -6,7 +7,7 @@
         <!-- Logo Profile -->
         @php
             $defaultFoto = 'path/to/default-foto.jpg'; // Pastikan path ke foto default benar
-            $userFoto = $user->foto ? asset('upload/img/' . $user->foto) : asset($defaultFoto);
+            $userFoto = $user->foto ? asset('storage/uploads/' . $user->foto) : asset($defaultFoto);
         @endphp
 
         <img src="{{ $userFoto }}" alt="Profile Logo" class="mx-auto mb-8 rounded-full w-40 h-40 object-cover ring-4 ring-purple-500 shadow-lg">
