@@ -19,12 +19,12 @@
             </div>
 
             <div class="flex items-center justify-center bg-gradient-to-r from-green-400 to-green-600 p-5 rounded-lg shadow-md hover:from-green-500 hover:to-green-700 transition duration-300 hover:scale-110">
-                <span class="text-white text-xl font-semibold">{{ $user->npm }}</span>
+                <span class="text-white text-xl font-semibold">{{ $user->ipk }}</span>
             </div>
 
-            <div class="flex items-center justify-center bg-gradient-to-r from-blue-400 to-blue-600 p-5 rounded-lg shadow-md hover:from-blue-500 hover:to-blue-700 transition duration-300 hover:scale-110">
+            {{-- <div class="flex items-center justify-center bg-gradient-to-r from-blue-400 to-blue-600 p-5 rounded-lg shadow-md hover:from-blue-500 hover:to-blue-700 transition duration-300 hover:scale-110">
                 <span class="text-white text-xl font-semibold">{{ $user->kelas->nama_kelas ?? 'Kelas tidak ditemukan' }}</span>
-            </div>
+            </div> --}}
         </div>
 
         <div class="mt-8">

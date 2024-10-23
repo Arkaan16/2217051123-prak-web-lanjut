@@ -19,8 +19,9 @@
                 <tr>
                     <th class="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider">ID</th>
                     <th class="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider">Nama</th>
-                    <th class="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider">NPM</th>
+                    {{-- <th class="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider">NPM</th> --}}
                     <th class="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider">Kelas</th>
+                    <th class="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider">IPK</th>
                     <th class="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider">Foto</th>
                     <th class="px-6 py-3 text-center text-sm font-medium uppercase tracking-wider">Aksi</th>
                 </tr>
@@ -30,8 +31,10 @@
                     <tr class=" hover:bg-gray-200 transition-colors">
                         <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['id'] }}</td>
                         <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['nama'] }}</td>
-                        <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['npm'] }}</td>
+                        {{-- <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['npm'] }}</td> --}}
+                        
                         <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['nama_kelas'] }}</td>
+                        <td class="px-6 py-4 border-b border-gray-200 text-center">{{ $user['ipk'] }}</td>
                         <td class="px-6 py-4 border-b border-gray-200 text-center flex justify-center">
                             @if($user->foto)
                                 <img src="{{ asset('storage/uploads/' . $user->foto) }}" alt="Foto {{ $user->nama }}" class="w-20 h-20 object-cover rounded">

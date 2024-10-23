@@ -23,9 +23,11 @@ class UserRequest extends FormRequest
     {
         return [
             'nama' => 'required|string|max:255',
-            'npm' => 'required|string|max:255',
+            // 'npm' => 'required|string|max:255',
             'kelas_id' => 'required|exists:kelas,id',
+            'ipk' => 'nullable|numeric|min:0|max:4',
             'foto' => 'nullable|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            
         ];
     }
 }

@@ -14,8 +14,9 @@ class UserModel extends Model
 
     protected $fillable = [
         'nama',
-        'npm',
+        // 'npm',
         'kelas_id',
+        'ipk',
         'foto', // Kolom foto ditambahkan di sini
     ];
 

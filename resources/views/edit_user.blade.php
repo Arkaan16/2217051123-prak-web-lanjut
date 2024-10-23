@@ -27,10 +27,10 @@
             </div>
     
             <div class="mb-6">
-                <label for="npm" class="block text-gray-700 text-lg font-semibold mb-2">NPM:</label>
-                <input type="text" id="npm" name="npm" value="{{ old('npm',$user->npm) }}"
+                <label for="ipk" class="block text-gray-700 text-lg font-semibold mb-2">NPM:</label>
+                <input type="text" id="ipk" name="ipk" value="{{ old('ipk',$user->ipk) }}"
                        class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-4 focus:ring-purple-300 focus:border-transparent transition duration-300 ease-in-out">
-                @foreach ($errors->get('npm') as $msg )
+                @foreach ($errors->get('ipk') as $msg )
                     <p class="text-red-500">{{ $msg }}</p>
                 @endforeach
             </div>
